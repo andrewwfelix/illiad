@@ -1,0 +1,63 @@
+THE COMPLETE GUIDE TO READING THE ILIAD
+Site To-Do List
+===============
+
+SECTIONS TO ADD
+---------------
+- Maps & Resources
+  A curated collection of free online maps for following the Iliad's geography.
+  Potential sources: Wikimedia Commons (Homeric Greece SVG), World History Encyclopedia,
+  Open Culture character hometowns map, Pleiades Project ancient world atlas.
+  Could include an embedded interactive map via Pleiades or Google Maps.
+
+- Links & Resources
+  A master reference page collecting every external link mentioned across the site:
+  all books (with purchase links), all podcast episodes (with listen links),
+  all free online resources, Perseus Digital Library, etc.
+  Could double as an affiliate link page once the site has traffic.
+
+FEATURES TO ADD
+---------------
+- Search / filter on each reference page (magnifying glass icon in content header)
+  Pure JavaScript, no server needed. Filter visible entries as user types.
+  Priority pages: Character Reference, Book-by-Book Synopsis, Key Terms Glossary.
+
+- Nav injection via nav.js
+  Currently the sidebar HTML is duplicated across index.html and all 6 reference pages.
+  A shared nav.js file would inject the sidebar into every page so updates only
+  need to be made in one place.
+
+- PDF Reading Guide (email capture)
+  A downloadable 2-page PDF of the complete reading list and podcast recommendations.
+  Requires an email service integration (Mailchimp, ConvertKit, etc.).
+  Was previously Section 11 — removed for now, worth revisiting once content is stable.
+
+- Google Analytics
+  Add GA4 tracking snippet to <head> of all pages once site is live.
+  Placeholder already removed — easy to add back.
+
+- AdSense
+  728x90 leaderboard at bottom of content area on non-Introduction pages.
+  Placeholder already removed — add back once site has meaningful traffic.
+  Bottom bar CSS and JS structure was already built, just needs the ins tag.
+
+CONTENT TO EXPAND
+-----------------
+- Scholar profiles in The Historians section — each person deserves a full biography,
+  key works list, and explanation of their significance to Homeric studies.
+
+- Book-by-Book Synopsis — currently one line per book, could expand to full summaries
+  with key themes, notable passages, and what to watch for on a first read.
+
+- Character Reference — could add family trees, divine parentage, key relationships,
+  and cross-references to specific book appearances.
+
+- Van De Mieroop entry — currently added to Section 2 but could use a fuller note
+  explaining which edition to use and how it differs from Cline's approach.
+
+IMAGES STILL NEEDED
+-------------------
+- cover-haynes-natalie-haynes-stands-up-for-the-classics.jpg (podcast, may not need one)
+- Any future book additions follow naming convention:
+  cover-[author-lastname]-[full-book-title].jpg
+  Target size: 176x268px, JPEG 85% quality (~8-15KB each)
