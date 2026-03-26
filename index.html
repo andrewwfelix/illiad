@@ -15,6 +15,7 @@
 
 <nav id="sidebar">
   <div id="sidebar-header">
+    <button id="hamburger" onclick="toggleSidebar()" aria-label="Close menu">✕</button>
     <h1>THE COMPLETE GUIDE TO READING THE ILIAD</h1>
     <p>Everything before you open the book</p>
   </div>
@@ -39,6 +40,13 @@
     <button class="nav-item" data-section="ref-weapons">Weapons &amp; Armor</button>
   </div>
 </nav>
+
+<div id="mobile-topbar">
+  <button id="mobile-menu-btn" onclick="toggleSidebar()" aria-label="Open menu">☰</button>
+  <span id="mobile-title">The Complete Guide to Reading the Iliad</span>
+</div>
+
+<div id="sidebar-overlay" onclick="toggleSidebar()"></div>
 
 <main id="main">
   <div id="content-scroll">
@@ -906,6 +914,13 @@
   const sections = document.querySelectorAll('.section');
   const contentScroll = document.getElementById('content-scroll');
 
+  function toggleSidebar() {
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebar-overlay');
+    sidebar.classList.toggle('open');
+    overlay.classList.toggle('active');
+  }
+
   function showSection(i) {
     navItems.forEach(b => b.classList.remove('active'));
     sections.forEach(s => s.classList.remove('active'));
@@ -916,8 +931,15 @@
     if (targetNav) targetNav.classList.add('active');
     if (targetSection) targetSection.classList.add('active');
 
-    // Scroll content back to top
     contentScroll.scrollTop = 0;
+
+    // Close sidebar on mobile after selection
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebar-overlay');
+    if (window.innerWidth <= 768) {
+      sidebar.classList.remove('open');
+      overlay.classList.remove('active');
+    }
   }
 
   navItems.forEach(btn => {
@@ -928,7 +950,6 @@
     }
   });
 
-  // Initialize — show intro without ad bar
   showSection(0);
 </script>
 
