@@ -891,3 +891,115 @@
       padding-top: 12px;
       border-top: 1px solid var(--border);
     }
+
+
+    /* ── PRINT STYLES ───────────────────────── */
+    @media print {
+
+      /* Hide UI chrome */
+      #sidebar { display: none !important; }
+      #mobile-topbar { display: none !important; }
+      #sidebar-overlay { display: none !important; }
+
+      /* Reset layout for print */
+      html, body {
+        height: auto !important;
+        overflow: visible !important;
+        font-size: 11pt !important;
+        background: white !important;
+      }
+
+      #main {
+        margin-left: 0 !important;
+        height: auto !important;
+        overflow: visible !important;
+        display: block !important;
+      }
+
+      #content-scroll {
+        height: auto !important;
+        overflow: visible !important;
+        padding: 0 !important;
+        max-width: 100% !important;
+        display: block !important;
+      }
+
+      /* Show all sections */
+      .section {
+        display: block !important;
+        page-break-before: always !important;
+      }
+
+      /* First section no break before */
+      #section-0 {
+        page-break-before: avoid !important;
+      }
+
+      /* Section headers never orphaned */
+      .section-header {
+        page-break-after: avoid !important;
+      }
+
+      /* Keep book entries together */
+      .book-entry {
+        page-break-inside: avoid !important;
+        margin: 12px 0 !important;
+      }
+
+      /* Keep table rows together */
+      tr {
+        page-break-inside: avoid !important;
+      }
+
+      /* Keep headings with content below */
+      h2, h3, h4, .sub-heading {
+        page-break-after: avoid !important;
+      }
+
+      /* Intro cards in 3 columns */
+      .intro-section-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+        page-break-inside: avoid !important;
+      }
+
+      /* Scale down covers but keep float right */
+      .book-cover {
+        width: 55px !important;
+        float: right !important;
+        margin: 0 0 8px 14px !important;
+      }
+
+      /* Reference tables */
+      .ref-table {
+        font-size: 9pt !important;
+        display: table !important;
+      }
+
+      /* Hide interactive elements */
+      .book-affiliate { display: none !important; }
+      .affiliate-notice { display: none !important; }
+      .intro-section-card { cursor: default !important; }
+
+      /* Clean up links */
+      a { color: inherit !important; text-decoration: none !important; }
+
+      /* Banner image full width */
+      .intro-banner {
+        height: 180px !important;
+        page-break-after: avoid !important;
+      }
+
+      /* Pull quote stays together */
+      .intro-pull-quote {
+        page-break-inside: avoid !important;
+      }
+
+      /* Sub-headings stay with content */
+      .sub-heading {
+        page-break-after: avoid !important;
+        margin-top: 20px !important;
+      }
+
+      /* Table headers repeat on new pages */
+      thead { display: table-header-group !important; }
+    }
