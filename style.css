@@ -365,6 +365,24 @@
 
     .intro-shortcut-desc strong { color: #c8d8f0; }
 
+    .book-affiliate {
+      display: inline-block;
+      margin-top: 10px;
+      font-family: 'Cinzel', serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(128,42,42,0.3);
+      transition: color 0.2s, border-bottom-color 0.2s;
+      clear: both;
+    }
+
+    .book-affiliate:hover {
+      color: var(--gold);
+      border-bottom-color: var(--gold);
+    }
+
     .book-entry {
       margin: 22px 0;
       padding: 16px 20px;
@@ -864,3 +882,26 @@
       }
     }
 
+
+    #affiliate-disclosure {
+      text-align: center;
+      font-family: 'EB Garamond', serif;
+      font-size: 0.75rem;
+      color: var(--muted);
+      padding: 16px 20px;
+      border-top: 1px solid var(--border);
+      background: var(--bg);
+      position: fixed;
+      bottom: 0;
+      left: var(--sidebar-w);
+      right: 0;
+      z-index: 10;
+    }
+
+    @media (max-width: 768px) {
+      #affiliate-disclosure {
+        left: 0;
+        font-size: 0.68rem;
+        padding: 10px 16px;
+      }
+    }
