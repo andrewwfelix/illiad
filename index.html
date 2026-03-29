@@ -3,29 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Dynamic Title and Description updated by JS on navigation -->
-  <title id="page-title">The Complete Guide to Reading the Iliad — Translations, Characters & Context</title>
-  <meta id="meta-description" name="description" content="A free reading guide for Homer's Iliad. Compare the best translations, explore Bronze Age history, find character references, book-by-book summaries, and everything you need to approach one of literature's greatest poems." />
+  <title>The Complete Guide to Reading the Iliad — Translations, Characters & Context</title>
+  <meta name="description" content="A free reading guide for Homer's Iliad. Compare the best translations, explore Bronze Age history, find character references, book-by-book summaries, and everything you need to approach one of literature's greatest poems." />
   <meta name="keywords" content="Iliad reading guide, best Iliad translation, Homer Iliad, Iliad characters, Iliad summary, Bronze Age Greece, how to read the Iliad, Fagles Wilson Lattimore, Greek mythology, Trojan War" />
   <meta name="author" content="readingtheiliad.com" />
 
-  <!-- Canonical Tag — updated dynamically by JS -->
-  <link id="canonical" rel="canonical" href="https://readingtheiliad.com/" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" id="og-title" content="The Complete Guide to Reading the Iliad" />
-  <meta property="og:description" id="og-description" content="Everything you need before you open the book — translations, characters, history, mythology, and practical reading advice." />
-  <meta property="og:url" id="og-url" content="https://readingtheiliad.com" />
+  <!-- Open Graph for social sharing -->
+  <meta property="og:title" content="The Complete Guide to Reading the Iliad" />
+  <meta property="og:description" content="Everything you need before you open the book — translations, characters, history, mythology, and practical reading advice." />
+  <meta property="og:url" content="https://readingtheiliad.com" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://readingtheiliad.com/images/landing_image.jpg" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" id="twitter-title" content="The Complete Guide to Reading the Iliad" />
-  <meta name="twitter:description" id="twitter-description" content="Everything you need before you open the book — translations, characters, history, mythology, and practical reading advice." />
+  <meta name="twitter:title" content="The Complete Guide to Reading the Iliad" />
+  <meta name="twitter:description" content="Everything you need before you open the book — translations, characters, history, mythology, and practical reading advice." />
   <meta name="twitter:image" content="https://readingtheiliad.com/images/landing_image.jpg" />
-
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Upright:ital,wght@0,400;0,600;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
 
   <!-- Google Analytics -->
@@ -36,7 +30,6 @@
     gtag('js', new Date());
     gtag('config', 'G-EKTNHX1JX4');
   </script>
-
   <link rel="preload" as="image" href="images/landing_image.jpg" />
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -1056,127 +1049,35 @@
   const sections = document.querySelectorAll('.section');
   const contentScroll = document.getElementById('content-scroll');
 
-  // Full section configuration — slug, title, and description per section
-  const sectionConfig = {
-    '0': {
-      slug: '',
-      title: 'The Complete Guide to Reading the Iliad — Translations, Characters & Context',
-      description: "A free reading guide for Homer's Iliad. Compare the best translations, explore Bronze Age history, find character references, book-by-book summaries, and everything you need to approach one of literature's greatest poems."
-    },
-    '6': {
-      slug: 'translations',
-      title: 'Best Iliad Translations — Fagles, Wilson, Green & Lattimore Compared',
-      description: 'Which Iliad translation should you read? Detailed comparison of Robert Fagles, Emily Wilson, Peter Green, and Richmond Lattimore — with recommendations for every type of reader.'
-    },
-    '1': {
-      slug: 'bronze-age-world',
-      title: 'The Bronze Age World & the Trojan War — Historical Context for the Iliad',
-      description: 'Explore the real Bronze Age world behind Homer's Iliad. The Late Bronze Age collapse, Mycenaean Greece, and what archaeology tells us about the historical Trojan War.'
-    },
-    '3': {
-      slug: 'mythology',
-      title: 'Greek Mythology Guide for Reading the Iliad',
-      description: 'Essential Greek mythology background for understanding the Iliad — the gods, the heroes, the Trojan War cycle, and the world Homer assumes you already know.'
-    },
-    '2a': {
-      slug: 'ancient-historians',
-      title: 'Ancient Historians on the Trojan War — Hesiod, Herodotus & Thucydides',
-      description: 'How the ancient world remembered the Trojan War. Hesiod, Herodotus, and Thucydides on Homer — the first critical readers of the Iliad.'
-    },
-    '2b': {
-      slug: 'modern-scholars',
-      title: 'Modern Scholars on the Iliad — Finley, Nagy, Wood & Beard',
-      description: 'The essential modern scholarship on Homer. M.I. Finley, Gregory Nagy, Michael Wood, and Mary Beard on the Iliad and the Bronze Age world.'
-    },
-    '5a': {
-      slug: 'after-the-iliad',
-      title: 'After the Iliad — The Odyssey, Aeneid, Ovid & Statius',
-      description: 'The ancient works that respond to and extend Homer's Iliad. The Odyssey, Virgil's Aeneid, Ovid's Metamorphoses, the Heroides, and Statius's Achilleid.'
-    },
-    '5b': {
-      slug: 'retellings',
-      title: 'Modern Retellings of the Iliad — Miller, Haynes & Circe',
-      description: 'Contemporary novels that bring Homer's characters to life. Madeline Miller's Song of Achilles and Circe, and Natalie Haynes's A Thousand Ships.'
-    },
-    '8': {
-      slug: 'podcasts',
-      title: 'Best Podcasts for Reading the Iliad — Rest is History, Natalie Haynes & More',
-      description: 'The best podcasts to accompany your reading of the Iliad. The Rest is History, Natalie Haynes Stands Up for the Classics, Mary Beard, and Alessandro Barbero.'
-    },
-    '9': {
-      slug: 'how-to-read',
-      title: 'How to Read the Iliad — Practical Advice for First-Time Readers',
-      description: 'Practical advice for reading Homer's Iliad. Read aloud, track similes, keep a character reference open, and understand why the poem ends where it does.'
-    },
-    'ref-char': {
-      slug: 'characters',
-      title: 'Iliad Character Reference — Greeks, Trojans & Their Fates',
-      description: 'Complete character guide for Homer's Iliad. Every major Greek and Trojan — who they are, what they do, and what happens to them.'
-    },
-    'ref-battle': {
-      slug: 'battle-and-geography',
-      title: 'Iliad Battle & Geography Reference — Troy, the Plain & the Greek Camp',
-      description: 'The physical world of the Iliad — Troy, the Scaean Gates, the Plain, the Greek camp, and the mechanics of Homeric warfare.'
-    },
-    'ref-synopsis': {
-      slug: 'synopsis',
-      title: 'Iliad Book-by-Book Synopsis — All 24 Books Summarized',
-      description: 'Book-by-book summary and analysis of Homer's Iliad. What happens in each of the 24 books and why it matters.'
-    },
-    'ref-gods': {
-      slug: 'gods',
-      title: 'The Gods of the Iliad — Olympians, Sides & Key Interventions',
-      description: 'The Olympian gods in Homer's Iliad — which side each supports, their domains, and their key interventions in the war.'
-    },
-    'ref-glossary': {
-      slug: 'glossary',
-      title: 'Iliad Key Terms Glossary — Menis, Kleos, Timē & Greek Concepts',
-      description: 'Essential Greek terms for understanding the Iliad. Menis, timē, kleos, aretē, aristeia, moira, xenia, hubris, and nostos — defined and explained.'
-    },
-    'ref-collapse': {
-      slug: 'bronze-age-collapse',
-      title: 'Bronze Age Collapse Timeline — 1200 BC & the Fall of the Ancient World',
-      description: 'The Bronze Age collapse timeline. How the world of the Trojan War ended — Mycenae, the Hittites, Ugarit, the Sea Peoples, and what it means for Homer.'
-    },
-    'ref-battles': {
-      slug: 'major-battles',
-      title: 'Major Battles of the Iliad — A Reader's Guide to Every Engagement',
-      description: 'Every major battle in the Iliad explained. From the first assault to the death of Hector — what happens, who fights, and why it matters.'
-    },
-    'ref-weapons': {
-      slug: 'weapons-and-armor',
-      title: 'Weapons & Armor in the Iliad — Spears, Shields & Achilles's Divine Armor',
-      description: 'A guide to the weapons and armor of Homer's Iliad. Spears, swords, the Shield of Achilles, greaves, helmets, and the significance of stripping armor.'
-    },
-    'gift-guide': {
-      slug: 'gift-guide',
-      title: 'Gift Guide for Classics Readers — Beautiful Editions, Art & Reading Tools',
-      description: 'Gift ideas for readers of the Iliad and Greek classics. Premium translations, deluxe editions, art prints, and the best tools for reading Homer.'
-    }
+  // Section ID to clean URL slug mapping
+  const sectionSlugs = {
+    '0':            '',
+    '6':            'translations',
+    '1':            'bronze-age-world',
+    '3':            'mythology',
+    '2a':           'ancient-historians',
+    '2b':           'modern-scholars',
+    '5a':           'after-the-iliad',
+    '5b':           'retellings',
+    '8':            'podcasts',
+    '9':            'how-to-read',
+    'ref-char':     'characters',
+    'ref-battle':   'battle-and-geography',
+    'ref-synopsis': 'synopsis',
+    'ref-gods':     'gods',
+    'ref-glossary': 'glossary',
+    'ref-collapse': 'bronze-age-collapse',
+    'ref-battles':  'major-battles',
+    'ref-weapons':  'weapons-and-armor',
+    'gift-guide':    'gift-guide',
+    'gift-guide':    'gift-guide',
   };
 
-  // Build slug maps from sectionConfig
-  const sectionSlugs = {};
+  // Reverse map: slug -> section ID
   const slugToSection = {};
-  Object.entries(sectionConfig).forEach(([id, config]) => {
-    sectionSlugs[id] = config.slug;
-    if (config.slug) slugToSection[config.slug] = id;
-    else slugToSection[''] = id;
+  Object.entries(sectionSlugs).forEach(([id, slug]) => {
+    slugToSection[slug] = id;
   });
-
-  function updateSEO(sectionId) {
-    const config = sectionConfig[sectionId] || sectionConfig['0'];
-    const canonicalUrl = 'https://readingtheiliad.com' + (config.slug ? '/' + config.slug : '/');
-
-    document.getElementById('page-title').textContent = config.title;
-    document.getElementById('meta-description').setAttribute('content', config.description);
-    document.getElementById('canonical').setAttribute('href', canonicalUrl);
-    document.getElementById('og-title').setAttribute('content', config.title);
-    document.getElementById('og-description').setAttribute('content', config.description);
-    document.getElementById('og-url').setAttribute('content', canonicalUrl);
-    document.getElementById('twitter-title').setAttribute('content', config.title);
-    document.getElementById('twitter-description').setAttribute('content', config.description);
-  }
 
   function toggleSidebar() {
     const sidebar = document.getElementById('sidebar');
@@ -1198,9 +1099,6 @@
     contentScroll.scrollTop = 0;
     window.scrollTo(0, 0);
 
-    // Update SEO tags
-    updateSEO(i);
-
     // Update URL without page reload
     if (pushState) {
       const slug = sectionSlugs[i] || '';
@@ -1208,10 +1106,12 @@
       history.pushState({ section: i }, '', url);
     }
 
-    // Close sidebar on mobile
+    // Close sidebar on mobile after selection
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebar-overlay');
     if (window.innerWidth <= 768) {
-      document.getElementById('sidebar').classList.remove('open');
-      document.getElementById('sidebar-overlay').classList.remove('active');
+      sidebar.classList.remove('open');
+      overlay.classList.remove('active');
     }
   }
 
@@ -1229,7 +1129,7 @@
     }
   });
 
-  // On load — handle direct URL or redirect from 404.html
+  // On load, check for redirect from 404.html or direct URL path
   function getInitialSection() {
     const params = new URLSearchParams(window.location.search);
     const redirectPath = params.get('redirect');
