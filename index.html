@@ -3,23 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Complete Guide to Reading the Iliad — Translations, Characters & Context</title>
-  <meta name="description" content="A free reading guide for Homer's Iliad. Compare the best translations, explore Bronze Age history, find character references, book-by-book summaries, and everything you need to approach one of literature's greatest poems." />
+
+  <!-- Dynamic Title and Description updated by JS on navigation -->
+  <title id="page-title">The Complete Guide to Reading the Iliad — Translations, Characters & Context</title>
+  <meta id="meta-description" name="description" content="A free reading guide for Homer's Iliad. Compare the best translations, explore Bronze Age history, find character references, book-by-book summaries, and everything you need to approach one of literature's greatest poems." />
   <meta name="keywords" content="Iliad reading guide, best Iliad translation, Homer Iliad, Iliad characters, Iliad summary, Bronze Age Greece, how to read the Iliad, Fagles Wilson Lattimore, Greek mythology, Trojan War" />
   <meta name="author" content="readingtheiliad.com" />
 
-  <!-- Open Graph for social sharing -->
-  <meta property="og:title" content="The Complete Guide to Reading the Iliad" />
-  <meta property="og:description" content="Everything you need before you open the book — translations, characters, history, mythology, and practical reading advice." />
-  <meta property="og:url" content="https://readingtheiliad.com" />
+  <!-- Canonical Tag — updated dynamically by JS -->
+  <link id="canonical" rel="canonical" href="https://readingtheiliad.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" id="og-title" content="The Complete Guide to Reading the Iliad" />
+  <meta property="og:description" id="og-description" content="Everything you need before you open the book — translations, characters, history, mythology, and practical reading advice." />
+  <meta property="og:url" id="og-url" content="https://readingtheiliad.com" />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://readingtheiliad.com/images/landing_image.jpg" />
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="The Complete Guide to Reading the Iliad" />
-  <meta name="twitter:description" content="Everything you need before you open the book — translations, characters, history, mythology, and practical reading advice." />
+  <meta name="twitter:title" id="twitter-title" content="The Complete Guide to Reading the Iliad" />
+  <meta name="twitter:description" id="twitter-description" content="Everything you need before you open the book — translations, characters, history, mythology, and practical reading advice." />
   <meta name="twitter:image" content="https://readingtheiliad.com/images/landing_image.jpg" />
+
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Upright:ital,wght@0,400;0,600;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
 
   <!-- Google Analytics -->
@@ -30,6 +36,7 @@
     gtag('js', new Date());
     gtag('config', 'G-EKTNHX1JX4');
   </script>
+
   <link rel="preload" as="image" href="images/landing_image.jpg" />
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -1044,40 +1051,43 @@
 
 </main>
 
-<script>
+
+
+  <script src="data.js"></script>
+  <script>
+'use strict';
+
+// nav.js — Navigation logic for readingtheiliad.com
+// Requires data.js to be loaded first (sectionConfig must be defined globally).
+
+document.addEventListener('DOMContentLoaded', () => {
+
   const navItems = document.querySelectorAll('.nav-item');
   const sections = document.querySelectorAll('.section');
   const contentScroll = document.getElementById('content-scroll');
 
-  // Section ID to clean URL slug mapping
-  const sectionSlugs = {
-    '0':            '',
-    '6':            'translations',
-    '1':            'bronze-age-world',
-    '3':            'mythology',
-    '2a':           'ancient-historians',
-    '2b':           'modern-scholars',
-    '5a':           'after-the-iliad',
-    '5b':           'retellings',
-    '8':            'podcasts',
-    '9':            'how-to-read',
-    'ref-char':     'characters',
-    'ref-battle':   'battle-and-geography',
-    'ref-synopsis': 'synopsis',
-    'ref-gods':     'gods',
-    'ref-glossary': 'glossary',
-    'ref-collapse': 'bronze-age-collapse',
-    'ref-battles':  'major-battles',
-    'ref-weapons':  'weapons-and-armor',
-    'gift-guide':    'gift-guide',
-    'gift-guide':    'gift-guide',
-  };
-
-  // Reverse map: slug -> section ID
+  // Build slug maps from sectionConfig
+  const sectionSlugs = {};
   const slugToSection = {};
-  Object.entries(sectionSlugs).forEach(([id, slug]) => {
-    slugToSection[slug] = id;
+  Object.entries(sectionConfig).forEach(([id, config]) => {
+    sectionSlugs[id] = config.slug;
+    if (config.slug) slugToSection[config.slug] = id;
+    else slugToSection[''] = id;
   });
+
+  function updateSEO(sectionId) {
+    const config = sectionConfig[sectionId] || sectionConfig['0'];
+    const canonicalUrl = 'https://readingtheiliad.com' + (config.slug ? '/' + config.slug : '/');
+
+    document.getElementById('page-title').textContent = config.title;
+    document.getElementById('meta-description').setAttribute('content', config.description);
+    document.getElementById('canonical').setAttribute('href', canonicalUrl);
+    document.getElementById('og-title').setAttribute('content', config.title);
+    document.getElementById('og-description').setAttribute('content', config.description);
+    document.getElementById('og-url').setAttribute('content', canonicalUrl);
+    document.getElementById('twitter-title').setAttribute('content', config.title);
+    document.getElementById('twitter-description').setAttribute('content', config.description);
+  }
 
   function toggleSidebar() {
     const sidebar = document.getElementById('sidebar');
@@ -1085,6 +1095,10 @@
     sidebar.classList.toggle('open');
     overlay.classList.toggle('active');
   }
+
+  // Expose globally so inline HTML onclick handlers can call these functions
+  window.toggleSidebar = toggleSidebar;
+  window.showSection = showSection;
 
   function showSection(i, pushState = true) {
     navItems.forEach(b => b.classList.remove('active'));
@@ -1099,23 +1113,20 @@
     contentScroll.scrollTop = 0;
     window.scrollTo(0, 0);
 
-    // Update URL without page reload
+    updateSEO(i);
+
     if (pushState) {
       const slug = sectionSlugs[i] || '';
       const url = slug ? '/' + slug : '/';
       history.pushState({ section: i }, '', url);
     }
 
-    // Close sidebar on mobile after selection
-    const sidebar = document.getElementById('sidebar');
-    const overlay = document.getElementById('sidebar-overlay');
     if (window.innerWidth <= 768) {
-      sidebar.classList.remove('open');
-      overlay.classList.remove('active');
+      document.getElementById('sidebar').classList.remove('open');
+      document.getElementById('sidebar-overlay').classList.remove('active');
     }
   }
 
-  // Handle browser back/forward buttons
   window.addEventListener('popstate', (e) => {
     const id = e.state?.section || '0';
     showSection(id, false);
@@ -1129,7 +1140,6 @@
     }
   });
 
-  // On load, check for redirect from 404.html or direct URL path
   function getInitialSection() {
     const params = new URLSearchParams(window.location.search);
     const redirectPath = params.get('redirect');
@@ -1143,7 +1153,10 @@
   }
 
   showSection(getInitialSection(), false);
-</script>
+
+}); // end DOMContentLoaded
+
+  </script>
 
 </body>
 </html>
