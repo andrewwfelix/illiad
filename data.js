@@ -6,12 +6,12 @@ const sectionConfig = {
     '0': {
       slug: '',
       title: `The Complete Guide to Reading the Iliad — Translations, Characters & Context`,
-      description: `A free reading guide for Homer's Iliad. Compare the best translations, explore Bronze Age history, find character references, book-by-book summaries, and everything you need to approach one of literature's greatest poems.`
+      description: `A free reading guide for Homer's Iliad — the epic that inspired Christopher Nolan's The Odyssey (2026). Compare the best translations, explore Bronze Age history, find character references, and everything you need before you open the book.`
     },
     '6': {
       slug: 'translations',
       title: `Best Iliad Translations — Fagles, Wilson, Green & Lattimore Compared`,
-      description: `Which Iliad translation should you read? Detailed comparison of Robert Fagles, Emily Wilson, Peter Green, and Richmond Lattimore — with recommendations for every type of reader.`,
+      description: `Which Iliad translation should you read? Detailed comparison of Robert Fagles, Emily Wilson, Peter Green, and Richmond Lattimore — with recommendations for every type of reader, including those preparing for the Nolan film.`,
     },
     'themes': {
       slug: 'themes',
@@ -57,6 +57,11 @@ const sectionConfig = {
       slug: 'how-to-read',
       title: `How to Read the Iliad — Practical Advice for First-Time Readers`,
       description: `Practical advice for reading Homer's Iliad. Read aloud, track similes, keep a character reference open, and understand why the poem ends where it does.`,
+    },
+    'nolan-iliad': {
+      slug: 'before-the-nolan-film',
+      title: `The Iliad Before the Nolan Film — The War That Started Everything`,
+      description: `Getting ready for Christopher Nolan's The Odyssey (July 17, 2026)? Start here. The Iliad is the war Odysseus is trying to leave behind — understand it first and the film will hit differently.`,
     },
     'ref-char': {
       slug: 'characters',
