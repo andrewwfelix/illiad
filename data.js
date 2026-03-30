@@ -13,6 +13,11 @@ const sectionConfig = {
       title: `Best Iliad Translations — Fagles, Wilson, Green & Lattimore Compared`,
       description: `Which Iliad translation should you read? Detailed comparison of Robert Fagles, Emily Wilson, Peter Green, and Richmond Lattimore — with recommendations for every type of reader.`,
     },
+    'themes': {
+      slug: 'themes',
+      title: `Themes of the Iliad — Rage, Glory, War & Grief in Homer's Epic`,
+      description: `The major themes of Homer's Iliad explained — rage and its consequences, kleos vs mortality, war's brutality, honor, grief, and the humanity of the enemy.`,
+    },
     '1': {
       slug: 'bronze-age-world',
       title: `The Bronze Age World & the Trojan War — Historical Context for the Iliad`,

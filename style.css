@@ -718,6 +718,25 @@
       padding: 6px;
     }
 
+    /* ── THEME ICONS ─────────────────────── */
+    .theme-icon {
+      float: right;
+      width: 88px;
+      height: 88px;
+      margin: 0 0 0 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cinzel', serif;
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--gold);
+      background: rgba(175, 144, 80, 0.06);
+      border: 1px solid rgba(175, 144, 80, 0.3);
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+    }
+
     /* ── MOBILE TOP BAR ─────────────────────── */
     #mobile-topbar {
       display: none;
@@ -847,6 +866,11 @@
         display: block;
         margin: 0 0 12px 0;
         width: 80px;
+      }
+
+      .theme-icon {
+        float: none;
+        margin: 0 0 12px 0;
       }
 
       /* Tables scroll horizontally */
