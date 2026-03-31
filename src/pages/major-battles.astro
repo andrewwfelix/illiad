@@ -1,51 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
 const title = `Major Battles of the Iliad — A Reader's Guide to Every Engagement`;
-const description = `Every major battle in the Iliad explained. From the first assault to the death of Hector — what happens, who fights, and why it matters.`;
+const description = `Every major battle in the Iliad explained.`;
 const canonical = `https://readingtheiliad.com/major-battles`;
 ---
 
-<Layout title={title} description={description} canonical={canonical}>
-  <nav id="sidebar">
-    <div id="sidebar-header">
-      <button id="hamburger" onclick="toggleSidebar()" aria-label="Close menu">✕</button>
-      <h1>THE COMPLETE GUIDE TO READING THE ILIAD</h1>
-      <p>Everything before you open the book</p>
-    </div>
-    <div id="nav">
-      <a class="nav-item nolan-nav" href="/before-the-nolan-film">Before the Nolan Film</a>
-      <a class="nav-item" href="/">Introduction</a>
-      <a class="nav-item" href="/themes">Themes</a>
-      <a class="nav-item" href="/translations">Choosing a Translation</a>
-      <a class="nav-item" href="/how-to-read">How to Read</a>
-      <a class="nav-item" href="/bronze-age-world">Bronze Age World</a>
-      <a class="nav-item" href="/mythology">Mythology</a>
-      <a class="nav-item" href="/ancient-historians">Ancient Historians</a>
-      <a class="nav-item" href="/modern-scholars">Modern Scholars</a>
-      <a class="nav-item" href="/after-the-iliad">After the Iliad</a>
-      <a class="nav-item" href="/retellings">Modern Retellings</a>
-      <a class="nav-item" href="/podcasts">Podcasts</a>
-      <a class="nav-item" href="/characters">Character Reference</a>
-      <a class="nav-item" href="/battle-and-geography">Battle &amp; Geography</a>
-      <a class="nav-item" href="/synopsis">Book-by-Book Synopsis</a>
-      <a class="nav-item" href="/gods">The Gods</a>
-      <a class="nav-item" href="/glossary">Key Terms Glossary</a>
-      <a class="nav-item" href="/bronze-age-collapse">Bronze Age Collapse</a>
-      <a class="nav-item active" href="/major-battles">Major Battles</a>
-      <a class="nav-item" href="/weapons-and-armor">Weapons &amp; Armor</a>
-      <a class="nav-item" href="/gift-guide">Gift Guide</a>
-      <a class="nav-item" href="https://readingtheodyssey.com" target="_blank" rel="noopener">Reading the Odyssey</a>
-    </div>
-  </nav>
-  <div id="mobile-topbar">
-    <button id="mobile-menu-btn" onclick="toggleSidebar()" aria-label="Open menu">☰</button>
-    <span id="mobile-title">The Complete Guide to Reading the Iliad</span>
-  </div>
-  <div id="sidebar-overlay" onclick="toggleSidebar()"></div>
-
-  <main id="main">
-    <div id="content-scroll">
-      <article class="section active">
+<Layout title={title} description={description} canonical={canonical} activePage="major-battles">
+  <article class="section active">
         <div class="section-header">
       <div class="section-label">Reference VII</div>
       <h2 class="section-title">Major Battles</h2>
@@ -121,16 +82,4 @@ const canonical = `https://readingtheiliad.com/major-battles`;
       </table>
     </div>
       </article>
-    </div>
-  </main>
-
-  <script>
-    function toggleSidebar() {
-      const sidebar = document.getElementById('sidebar');
-      const overlay = document.getElementById('sidebar-overlay');
-      sidebar.classList.toggle('open');
-      overlay.classList.toggle('active');
-    }
-  </script>
-
 </Layout>

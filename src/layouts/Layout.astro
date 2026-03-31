@@ -1,5 +1,28 @@
 ---
-const { title, description, canonical } = Astro.props;
+const { title, description, canonical, activePage } = Astro.props;
+const nav = [
+  { href: '/before-the-nolan-film', label: 'Before the Nolan Film', key: 'before-the-nolan-film', nolan: true },
+  { href: '/', label: 'Introduction', key: 'index' },
+  { href: '/themes', label: 'Themes', key: 'themes' },
+  { href: '/translations', label: 'Choosing a Translation', key: 'translations' },
+  { href: '/how-to-read', label: 'How to Read', key: 'how-to-read' },
+  { href: '/bronze-age-world', label: 'Bronze Age World', key: 'bronze-age-world' },
+  { href: '/mythology', label: 'Mythology', key: 'mythology' },
+  { href: '/ancient-historians', label: 'Ancient Historians', key: 'ancient-historians' },
+  { href: '/modern-scholars', label: 'Modern Scholars', key: 'modern-scholars' },
+  { href: '/after-the-iliad', label: 'After the Iliad', key: 'after-the-iliad' },
+  { href: '/retellings', label: 'Modern Retellings', key: 'retellings' },
+  { href: '/podcasts', label: 'Podcasts', key: 'podcasts' },
+  { href: '/characters', label: 'Character Reference', key: 'characters' },
+  { href: '/battle-and-geography', label: 'Battle & Geography', key: 'battle-and-geography' },
+  { href: '/synopsis', label: 'Book-by-Book Synopsis', key: 'synopsis' },
+  { href: '/gods', label: 'The Gods', key: 'gods' },
+  { href: '/glossary', label: 'Key Terms Glossary', key: 'glossary' },
+  { href: '/bronze-age-collapse', label: 'Bronze Age Collapse', key: 'bronze-age-collapse' },
+  { href: '/major-battles', label: 'Major Battles', key: 'major-battles' },
+  { href: '/weapons-and-armor', label: 'Weapons & Armor', key: 'weapons-and-armor' },
+  { href: '/gift-guide', label: 'Gift Guide', key: 'gift-guide' },
+];
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -13,9 +36,13 @@ const { title, description, canonical } = Astro.props;
   <meta property="og:description" content={description} />
   <meta property="og:url" content={canonical} />
   <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://readingtheiliad.com/images/landing_image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content="https://readingtheiliad.com/images/landing_image.jpg" />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Upright:ital,wght@0,400;0,600;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/style.css" />
-  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-EKTNHX1JX4"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -25,6 +52,51 @@ const { title, description, canonical } = Astro.props;
   </script>
 </head>
 <body>
-  <slot />
+  <nav id="sidebar">
+    <div id="sidebar-header">
+      <button id="hamburger" aria-label="Close menu">✕</button>
+      <h1>THE COMPLETE GUIDE TO READING THE ILIAD</h1>
+      <p>Everything before you open the book</p>
+    </div>
+    <div id="nav">
+      {nav.map(item => (
+        <a
+          class={`nav-item${item.nolan ? ' nolan-nav' : ''}${activePage === item.key ? ' active' : ''}`}
+          href={item.href}
+        >{item.label}</a>
+      ))}
+      <a class="nav-item" href="https://readingtheodyssey.com" target="_blank" rel="noopener">Reading the Odyssey</a>
+    </div>
+  </nav>
+
+  <div id="mobile-topbar">
+    <button id="mobile-menu-btn" aria-label="Open menu">☰</button>
+    <span id="mobile-title">The Complete Guide to Reading the Iliad</span>
+  </div>
+
+  <div id="sidebar-overlay"></div>
+
+  <main id="main">
+    <div id="content-scroll">
+      <slot />
+    </div>
+  </main>
+
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('sidebar-overlay');
+      sidebar.classList.toggle('open');
+      overlay.classList.toggle('active');
+    }
+    document.getElementById('hamburger').addEventListener('click', toggleSidebar);
+    document.getElementById('mobile-menu-btn').addEventListener('click', toggleSidebar);
+    document.getElementById('sidebar-overlay').addEventListener('click', toggleSidebar);
+    document.querySelectorAll('#nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) toggleSidebar();
+      });
+    });
+  </script>
 </body>
 </html>
