@@ -1,0 +1,95 @@
+---
+import Layout from '../layouts/Layout.astro';
+const title = `Modern Retellings of the Iliad — Miller, Haynes & Circe`;
+const description = `Contemporary novels that bring Homer's characters to life. Madeline Miller's Song of Achilles and Circe, and Natalie Haynes's A Thousand Ships.`;
+const canonical = `https://readingtheiliad.com/retellings`;
+---
+
+<Layout title={title} description={description} canonical={canonical}>
+  <nav id="sidebar">
+    <div id="sidebar-header">
+      <button id="hamburger" onclick="toggleSidebar()" aria-label="Close menu">✕</button>
+      <h1>THE COMPLETE GUIDE TO READING THE ILIAD</h1>
+      <p>Everything before you open the book</p>
+    </div>
+    <div id="nav">
+      <a class="nav-item nolan-nav" href="/before-the-nolan-film">Before the Nolan Film</a>
+      <a class="nav-item" href="/">Introduction</a>
+      <a class="nav-item" href="/themes">Themes</a>
+      <a class="nav-item" href="/translations">Choosing a Translation</a>
+      <a class="nav-item" href="/how-to-read">How to Read</a>
+      <a class="nav-item" href="/bronze-age-world">Bronze Age World</a>
+      <a class="nav-item" href="/mythology">Mythology</a>
+      <a class="nav-item" href="/ancient-historians">Ancient Historians</a>
+      <a class="nav-item" href="/modern-scholars">Modern Scholars</a>
+      <a class="nav-item" href="/after-the-iliad">After the Iliad</a>
+      <a class="nav-item active" href="/retellings">Modern Retellings</a>
+      <a class="nav-item" href="/podcasts">Podcasts</a>
+      <a class="nav-item" href="/characters">Character Reference</a>
+      <a class="nav-item" href="/battle-and-geography">Battle &amp; Geography</a>
+      <a class="nav-item" href="/synopsis">Book-by-Book Synopsis</a>
+      <a class="nav-item" href="/gods">The Gods</a>
+      <a class="nav-item" href="/glossary">Key Terms Glossary</a>
+      <a class="nav-item" href="/bronze-age-collapse">Bronze Age Collapse</a>
+      <a class="nav-item" href="/major-battles">Major Battles</a>
+      <a class="nav-item" href="/weapons-and-armor">Weapons &amp; Armor</a>
+      <a class="nav-item" href="/gift-guide">Gift Guide</a>
+      <a class="nav-item" href="https://readingtheodyssey.com" target="_blank" rel="noopener">Reading the Odyssey</a>
+    </div>
+  </nav>
+  <div id="mobile-topbar">
+    <button id="mobile-menu-btn" onclick="toggleSidebar()" aria-label="Open menu">☰</button>
+    <span id="mobile-title">The Complete Guide to Reading the Iliad</span>
+  </div>
+  <div id="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+  <main id="main">
+    <div id="content-scroll">
+      <article class="section active">
+        <div class="section-header">
+      <div class="section-label">Section 8</div>
+      <h2 class="section-title">Modern Retellings</h2>
+      <p class="section-subtitle">Contemporary novels that bring Homer's characters to life</p>
+    </div>
+    <div class="section-body">
+      <p>These modern novels do something ancient scholarship cannot — they make you care about Achilles, Patroclus, and the women of Troy before Homer's poem begins. A note of honest framing: these are modern reinterpretations that apply contemporary sensibilities to ancient material. Read them to build emotional investment, then let Homer's harsher heroic world surprise you.</p>
+
+      <div class="book-entry">
+        <img class="book-cover" src="images/cover-miller-the-song-of-achilles.jpg" alt="The Song of Achilles" />
+        <div class="book-title">The Song of Achilles</div>
+        <div class="book-author">Madeline Miller</div>
+        <div class="book-note">The best entry point for emotional investment in the characters. Miller tells the story of Achilles and Patroclus from Patroclus's perspective, from childhood through Troy, with warmth and psychological depth that makes both characters feel fully human. Readers who come to the Iliad after this novel find that Patroclus's death in Book 16 hits with an entirely different force. A note of honest framing: this is a modern reinterpretation — Miller prioritizes psychological interiority and romantic feeling in ways Homer does not. Read it to care about the characters, then let Homer's harsher heroic code surprise you.</div>
+        <a class="book-affiliate" href="https://amzn.to/4t9yWiT" target="_blank" rel="noopener">Buy on Amazon →</a>
+      </div>
+
+      <div class="book-entry">
+        <img class="book-cover" src="images/cover-miller-circe.jpg" alt="Circe — Madeline Miller" />
+        <div class="book-title">Circe</div>
+        <div class="book-author">Madeline Miller</div>
+        <div class="book-note">Miller's second novel follows the witch Circe — daughter of the sun god Helios, minor figure in the Odyssey — across millennia of Greek myth. Where Song of Achilles is about glory and loss, Circe is about power and transformation. It touches the Trojan War world obliquely but rewards readers who have already met its cast of characters. The best of Miller's work by many readers' estimation.</div>
+        <a class="book-affiliate" href="https://amzn.to/4seBL1n" target="_blank" rel="noopener">Buy on Amazon →</a>
+      </div>
+
+      <div class="book-entry">
+        <img class="book-cover" src="images/cover-haynes-a-thousand-ships.jpg" alt="A Thousand Ships" />
+        <div class="book-title">A Thousand Ships</div>
+        <div class="book-author">Natalie Haynes</div>
+        <div class="book-note">The Trojan War from the perspectives Homer marginalizes — the women, the Trojans, the figures who appear briefly and are then forgotten. Haynes gives voices to Penelope, Hecuba, Cassandra, and Briseis, filling in the human reality around Homer's male-centered narrative. An excellent complement to the Iliad rather than a substitute for it. Like Miller, Haynes draws on the full Epic Cycle and applies a distinctly contemporary critical lens to the ancient material.</div>
+        <a class="book-affiliate" href="https://amzn.to/41xZ3nC" target="_blank" rel="noopener">Buy on Amazon →</a>
+      </div>
+      <p class="affiliate-notice">As an Amazon Associate, I earn from qualifying purchases.</p>
+    </div>
+      </article>
+    </div>
+  </main>
+
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('sidebar-overlay');
+      sidebar.classList.toggle('open');
+      overlay.classList.toggle('active');
+    }
+  </script>
+
+</Layout>

@@ -1,0 +1,95 @@
+---
+import Layout from '../layouts/Layout.astro';
+const title = `Ancient Historians on the Trojan War — Hesiod, Herodotus & Thucydides`;
+const description = `How the ancient world remembered the Trojan War. Hesiod, Herodotus, and Thucydides on Homer — the first critical readers of the Iliad.`;
+const canonical = `https://readingtheiliad.com/ancient-historians`;
+---
+
+<Layout title={title} description={description} canonical={canonical}>
+  <nav id="sidebar">
+    <div id="sidebar-header">
+      <button id="hamburger" onclick="toggleSidebar()" aria-label="Close menu">✕</button>
+      <h1>THE COMPLETE GUIDE TO READING THE ILIAD</h1>
+      <p>Everything before you open the book</p>
+    </div>
+    <div id="nav">
+      <a class="nav-item nolan-nav" href="/before-the-nolan-film">Before the Nolan Film</a>
+      <a class="nav-item" href="/">Introduction</a>
+      <a class="nav-item" href="/themes">Themes</a>
+      <a class="nav-item" href="/translations">Choosing a Translation</a>
+      <a class="nav-item" href="/how-to-read">How to Read</a>
+      <a class="nav-item" href="/bronze-age-world">Bronze Age World</a>
+      <a class="nav-item" href="/mythology">Mythology</a>
+      <a class="nav-item active" href="/ancient-historians">Ancient Historians</a>
+      <a class="nav-item" href="/modern-scholars">Modern Scholars</a>
+      <a class="nav-item" href="/after-the-iliad">After the Iliad</a>
+      <a class="nav-item" href="/retellings">Modern Retellings</a>
+      <a class="nav-item" href="/podcasts">Podcasts</a>
+      <a class="nav-item" href="/characters">Character Reference</a>
+      <a class="nav-item" href="/battle-and-geography">Battle &amp; Geography</a>
+      <a class="nav-item" href="/synopsis">Book-by-Book Synopsis</a>
+      <a class="nav-item" href="/gods">The Gods</a>
+      <a class="nav-item" href="/glossary">Key Terms Glossary</a>
+      <a class="nav-item" href="/bronze-age-collapse">Bronze Age Collapse</a>
+      <a class="nav-item" href="/major-battles">Major Battles</a>
+      <a class="nav-item" href="/weapons-and-armor">Weapons &amp; Armor</a>
+      <a class="nav-item" href="/gift-guide">Gift Guide</a>
+      <a class="nav-item" href="https://readingtheodyssey.com" target="_blank" rel="noopener">Reading the Odyssey</a>
+    </div>
+  </nav>
+  <div id="mobile-topbar">
+    <button id="mobile-menu-btn" onclick="toggleSidebar()" aria-label="Open menu">☰</button>
+    <span id="mobile-title">The Complete Guide to Reading the Iliad</span>
+  </div>
+  <div id="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+  <main id="main">
+    <div id="content-scroll">
+      <article class="section active">
+        <div class="section-header">
+      <div class="section-label">Ancient Historians</div>
+      <h2 class="section-title">Ancient Historians</h2>
+      <p class="section-subtitle">How the classical world remembered and rationalized the Trojan War</p>
+    </div>
+    <div class="section-body">
+      <p>Homer's contemporaries and near-successors did not treat the Trojan War as myth — they treated it as history, subject to scrutiny and debate. These ancient writers are the first in a long line of readers who tried to figure out what really happened at Troy, and how much of Homer to believe.</p>
+
+      <div class="book-entry">
+        <img class="book-cover" src="images/cover-hesiod-theogony-and-works-and-days.jpg" alt="Theogony and Works and Days" />
+        <div class="book-title">Theogony and Works and Days</div>
+        <div class="book-author">Hesiod</div>
+        <div class="book-note">The divine origin story Homer assumes you already know. Written roughly contemporary with Homer, Hesiod's Theogony lays out the genealogy of the gods — how Zeus came to power, which gods are related to which, and why the Olympians behave the way they do. A short read that pays enormous dividends when the gods start intervening in the Iliad.</div>
+        <a class="book-affiliate" href="https://amzn.to/3NC5DGB" target="_blank" rel="noopener">Buy on Amazon →</a>
+      </div>
+
+      <div class="book-entry">
+        <img class="book-cover" src="images/cover-thucydides-history-of-the-peloponnesian-war.jpg" alt="History of the Peloponnesian War" />
+        <div class="book-title">History of the Peloponnesian War</div>
+        <div class="book-author">Thucydides</div>
+        <div class="book-note">Thucydides treated the Trojan War as a genuine historical event but applied skeptical scrutiny to Homer's numbers and claims. His brief analysis in Book 1 is essential: he accepts the war happened while doubting its scale. This ancient critical distance is a useful corrective to both dismissing Homer entirely and accepting him too literally.</div>
+        <a class="book-affiliate" href="https://amzn.to/4dHMKfQ" target="_blank" rel="noopener">Buy on Amazon →</a>
+      </div>
+
+      <div class="book-entry">
+        <img class="book-cover" src="images/cover-herodotus-the-histories.jpg" alt="The Histories" />
+        <div class="book-title">The Histories</div>
+        <div class="book-author">Herodotus</div>
+        <div class="book-note">Herodotus placed the Trojan War in a broader eastern Mediterranean context, seeing it as an early episode in the long conflict between Europe and Asia. His account of how the Egyptians and Phoenicians remembered the story of Helen is a fascinating counterpoint to Homer's version — a reminder that the Greeks were not the only people with opinions about what happened at Troy.</div>
+        <a class="book-affiliate" href="https://amzn.to/40QOhZB" target="_blank" rel="noopener">Buy on Amazon →</a>
+      </div>
+      <p class="affiliate-notice">As an Amazon Associate, I earn from qualifying purchases.</p>
+    </div>
+      </article>
+    </div>
+  </main>
+
+  <script>
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('sidebar-overlay');
+      sidebar.classList.toggle('open');
+      overlay.classList.toggle('active');
+    }
+  </script>
+
+</Layout>
