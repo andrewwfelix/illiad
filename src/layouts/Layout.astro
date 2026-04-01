@@ -1,6 +1,8 @@
 ---
 import SEO from '../components/SEO.astro';
-const { title, description, canonical = 'https://readingtheiliad.com/' } = Astro.props;
+const { title, description, canonical: canonicalProp = 'https://readingtheiliad.com/' } = Astro.props;
+// Normalize canonical: ensure it always ends with a trailing slash
+const canonical = canonicalProp.endsWith('/') ? canonicalProp : canonicalProp + '/';
 const nav = [
   { href: '/before-the-nolan-film', label: 'Before the Nolan Film', nolan: true },
   { href: '/', label: 'Introduction' },
